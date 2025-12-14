@@ -1,0 +1,17 @@
+<h2>Dashboard</h2>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul>
+      {% for category, msg in messages %}
+        <li><b>{{ category }}:</b> {{ msg }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<p>Welcome, <b>{{ session["user_name"] }}</b></p>
+<p>Your role: <b>{{ session["role"] }}</b></p>
+
+<a href="/logout">Logout</a> |
+<a href="/">Home</a>
